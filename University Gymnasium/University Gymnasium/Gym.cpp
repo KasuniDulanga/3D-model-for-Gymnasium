@@ -357,7 +357,7 @@ void man() {
     glutSolidCube(1);
     glPopMatrix();
 }
-//basketball shoot man
+//shoot basketball
 void man5(GLfloat Rot1, GLfloat Rot2, GLfloat x, GLfloat y, GLfloat z, GLfloat R, GLfloat G, GLfloat B) {
     glPushMatrix();
     glTranslatef(0, 3, 0);
@@ -1091,7 +1091,7 @@ void badmintonCourt() {
     cylinder(0.15, 6);
     glPopMatrix();
 
-    glPushMatrix();
+   /* glPushMatrix();
     glColor3f(1, 1, 1);
     NetHorizontal(2.6, 6, 0.4);
     glPopMatrix();
@@ -1099,7 +1099,7 @@ void badmintonCourt() {
     glPushMatrix();
     glColor3f(1, 1, 1);
     NetVetical(2.5, 6, 0.4);
-    glPopMatrix();
+    glPopMatrix();*/
 
 
 }
@@ -1236,7 +1236,7 @@ void tableTennis() {
     glTranslatef(0, 3, 0);
     glRotatef(90, 0, 1, 0);
     glPushMatrix();
-    glColor3f(0, 0, 1);
+    glColor3f(0, 1, 0);
     glScalef(25, 1, 30);
     glutSolidCube(0.2);
     glPopMatrix();
@@ -2084,11 +2084,7 @@ void Gym() {
 void drawGrid() {
     GLfloat step = 1.0f;
     GLint line;
-    /*   GLfloat amb[] = { 1,1,1,1 };
-       GLfloat dif[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-       GLfloat spec[] = { 1,1,1,1 };
-       GLfloat shin[] = { 100 };
-       material(amb, dif,spec,shin);*/
+ 
     glColor3f(0, 0, 0);
     glBegin(GL_LINES);
     for (line = -gridSize; line <= gridSize; line += step) {
@@ -2108,11 +2104,6 @@ void drawAxes() {
     glLineWidth(1.5);
 
     glColor3f(1.0, 0.0, 0.0);
-    /*  GLfloat amb[] = { 1,0,0,1 };
-      GLfloat dif[] = { 1.0f, 0.0f, 0.0f, 1.0f };
-      GLfloat spec[] = { 1,1,1,1 };
-      GLfloat shin[] = { 100 };
-      material(amb, dif, spec, shin);*/
     glVertex3f(-200, 0, 0);
     glVertex3f(200, 0, 0);
 
@@ -2137,11 +2128,11 @@ void display() {
     glPushMatrix();
 
     /* set material parameters */
-    const GLfloat blue[4] = { 0.5, 0.5, 0.5, 1.0 };
+ /*   const GLfloat blue[4] = { 0.5, 0.5, 0.5, 1.0 };
     glMaterialfv(GL_FRONT, GL_DIFFUSE, blue);
     const GLfloat matwhite[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
     glMaterialfv(GL_FRONT, GL_SPECULAR, matwhite);
-    glMaterialf(GL_FRONT, GL_SHININESS, 128.0f);
+    glMaterialf(GL_FRONT, GL_SHININESS, 128.0f);*/
 
     /* positioned the light source */
     GLfloat position[] = { 100.0,100.0,100.0,1.0 };
@@ -2161,6 +2152,11 @@ void display() {
     glLightfv(GL_LIGHT1, GL_DIFFUSE, paleYellow1);
     GLfloat white1[] = { 0.75,0.75,0.75,1.0 };
     glLightfv(GL_LIGHT1, GL_SPECULAR, white1);
+
+    GLfloat position2[] = { -50.0,50.0,50.0,1.0 };
+    glLightfv(GL_LIGHT2, GL_POSITION, position2);
+
+   
     // camera orientation (eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)
     gluLookAt(camX, camY, camZ, 0, 0, 0, 0.0, 1.0, 0.0);
 
